@@ -1,0 +1,22 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './EmployeeList.css';  
+
+function EmployeeList({ employees }) {
+  return (
+    <div className="employee-list">
+      <h1>Employee List</h1>
+      <ul>
+        {employees.map(employee => (
+          <li key={employee.EmployeeId}>
+            <Link to={`/employees/${employee.EmployeeId}`}>
+              {employee.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default EmployeeList;

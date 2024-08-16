@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import EmployeeList from './components/EmployeeList';
 import './App.css';
 
 function App() {
+  const [employees, setEmployees] = useState([]);
+
+  useEffect(() => {
+    const storedEmployees = localStorage.getItem('employees');
+    if (storedEmployees) {
+      setEmployees(JSON.parse(storedEmployees));
+    } else {
+      const sampleEmployees = [
+        { EmployeeId: 1, name: 'John Doe', position: 'Developer', department: 'IT', email: 'john@example.com', phone: '123-456-7890' },
+        { EmployeeId: 2, name: 'Jane Smith', position: 'Designer', department: 'UX', email: 'jane@example.com', phone: '987-654-3210' },
+      ];
+      setEmployees(sampleEmployees);
+      localStorage.setItem('employees', JSON.stringify(sampleEmployees));
+    }
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<EmployeeList employees={employees} />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

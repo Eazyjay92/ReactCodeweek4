@@ -1,0 +1,28 @@
+.employee-list {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .employee-list h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .employee-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .employee-list li {
+    margin: 5px 0;
+  }
+  
+  .employee-list a {
+    text-decoration: none;
+    color: #3498db;
+  }
+  
+  .employee-list a:hover {
+    text-decoration: underline;
+  }
+  
