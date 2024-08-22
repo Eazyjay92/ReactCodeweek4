@@ -1,6 +1,7 @@
 .employee-list {
     padding: 20px;
     font-family: Arial, sans-serif;
+    
   }
   
   .employee-list h1 {
@@ -25,4 +26,33 @@
   .employee-list a:hover {
     text-decoration: underline;
   }
+
+
+  .employee-card {
+    background-color: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  .employee-card:hover {
+    transform: translateY(-5px);
+  }
+
+
+  .main-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  
+  .employee-list {
+    flex: 1;
+    margin-right: 20px;
+  }
+
   
